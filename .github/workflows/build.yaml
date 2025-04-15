@@ -33,8 +33,8 @@ jobs:
         job:
           - { name: "amd64",   target: "x86_64-unknown-linux-musl" }
           - { name: "arm64v8", target: "aarch64-unknown-linux-musl" }
-          - { name: "armv7",   target: "armv7-unknown-linux-musleabihf" }
-          - { name: "i386",    target: "i686-unknown-linux-musl" }
+          #- { name: "armv7",   target: "armv7-unknown-linux-musleabihf" }
+          #- { name: "i386",    target: "i686-unknown-linux-musl" }
           #- { name: "amd64fb",    target: "x86_64-unknown-freebsd" }
 
     steps:
@@ -179,8 +179,8 @@ jobs:
         job:
           - { os: "linux", name: "amd64", suffix: "" }
           - { os: "linux", name: "arm64v8", suffix: "" }
-          - { os: "linux", name: "armv7", suffix: "" }
-          - { os: "linux", name: "i386", suffix: "" }
+          #- { os: "linux", name: "armv7", suffix: "" }
+          #- { os: "linux", name: "i386", suffix: "" }
           #- { os: "linux", name: "amd64fb", suffix: "" }
           - { os: "windows", name: "x86_64", suffix: "-unsigned" }
           
@@ -209,6 +209,7 @@ jobs:
             
   # docker build and push of single-arch images
   docker:
+    if: false
 
     name: Docker push - ${{ matrix.job.name }}
     needs: build
@@ -282,7 +283,7 @@ jobs:
 
   # docker build and push of multiarch images
   docker-manifest:
-
+    if: false
     name: Docker manifest
     needs: docker
     runs-on: ubuntu-22.04
@@ -333,7 +334,7 @@ jobs:
             
   # docker build and push of single-arch images
   docker-classic:
-
+    if: false
     name: Docker push - ${{ matrix.job.name }}
     needs: build
     runs-on: ubuntu-22.04
@@ -403,7 +404,7 @@ jobs:
 
   # docker build and push of multiarch images
   docker-manifest-classic:
-
+    if: false
     name: Docker manifest
     needs: docker
     runs-on: ubuntu-22.04
@@ -453,7 +454,7 @@ jobs:
 
 
   deb-package:
-
+    if: false
     name: debian package - ${{ matrix.job.name }}
     needs: build
     runs-on: ubuntu-22.04
