@@ -185,16 +185,6 @@ jobs:
           - { os: "windows", name: "x86_64", suffix: "-unsigned" }
           
     steps:
-
-      - name: Download binaries (${{ matrix.job.os }} - ${{ matrix.job.name }})
-        uses: actions/download-artifact@v4
-        with:
-          name: binaries-${{ matrix.job.os }}-${{ matrix.job.name }}
-          path: ${{ matrix.job.name }}
-
-      - name: Exec chmod
-        run: chmod -v a+x ${{ matrix.job.name }}/*
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -219,6 +209,15 @@ jobs:
           # 将信息写入环境变量
           echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
           # echo "VERSION=$VERSION" >> $GITHUB_ENV
+          
+      - name: Download binaries (${{ matrix.job.os }} - ${{ matrix.job.name }})
+        uses: actions/download-artifact@v4
+        with:
+          name: binaries-${{ matrix.job.os }}-${{ matrix.job.name }}
+          path: ${{ matrix.job.name }}
+
+      - name: Exec chmod
+        run: chmod -v a+x ${{ matrix.job.name }}/*
 
 
       - name: Pack files (${{ matrix.job.os }} - ${{ matrix.job.name }})
