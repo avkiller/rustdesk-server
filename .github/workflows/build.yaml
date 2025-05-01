@@ -195,6 +195,11 @@ jobs:
       - name: Exec chmod
         run: chmod -v a+x ${{ matrix.job.name }}/*
 
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
       - name: Get tag version
         run: |
           # 如果是手动触发 (workflow_dispatch)
