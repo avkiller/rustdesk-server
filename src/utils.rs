@@ -109,12 +109,13 @@ fn doctor_ip(server_ip_address: std::net::IpAddr, server_address: Option<&str>) 
     // TODO: ICMP ping?
 
     // port check TCP (UDP is hard to check)
-    doctor_tcp(server_ip_address, "21114", "API");
-    doctor_tcp(server_ip_address, "21115", "hbbs extra port for nat test");
-    doctor_tcp(server_ip_address, "21116", "hbbs");
-    doctor_tcp(server_ip_address, "21117", "hbbr tcp");
-    doctor_tcp(server_ip_address, "21118", "hbbs websocket");
-    doctor_tcp(server_ip_address, "21119", "hbbr websocket");
+    // 21114
+    doctor_tcp(server_ip_address, "10084", "API");
+    doctor_tcp(server_ip_address, "10085", "hbbs extra port for nat test");
+    doctor_tcp(server_ip_address, "10086", "hbbs");
+    doctor_tcp(server_ip_address, "10087", "hbbr tcp");
+    doctor_tcp(server_ip_address, "10088", "hbbs websocket");
+    doctor_tcp(server_ip_address, "10089", "hbbr websocket");
 
     // TODO: key check
 }
