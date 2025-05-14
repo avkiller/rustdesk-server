@@ -334,7 +334,7 @@ jobs:
       # manifest for :1.2.3 tag
       #  this has to run only if invoked by a new tag
       - name: Create and push manifest (:ve.rs.ion)
-        uses: Noelware/docker-manifest-action@master
+        uses: Noelware/docker-manifest-action@0.4.3
         if: github.event_name != 'workflow_dispatch'
         with:
           base-image: ${{ secrets.DOCKER_IMAGE }}:${{ env.GIT_TAG }}
@@ -343,7 +343,7 @@ jobs:
 
       # manifest for :1 tag (major release)
       - name: Create and push manifest (:major)
-        uses: Noelware/docker-manifest-action@master
+        uses: Noelware/docker-manifest-action@0.4.3
         with:
           base-image: ${{ secrets.DOCKER_IMAGE }}:${{ env.MAJOR_TAG }}
           extra-images: ${{ secrets.DOCKER_IMAGE }}:${{ env.MAJOR_TAG }}-amd64,${{ secrets.DOCKER_IMAGE }}:${{ env.MAJOR_TAG }}-arm64v8,${{ secrets.DOCKER_IMAGE }}:${{ env.MAJOR_TAG }}-armv7,${{ secrets.DOCKER_IMAGE }}:${{ env.MAJOR_TAG }}-i386
@@ -351,7 +351,7 @@ jobs:
 
       # manifest for :latest tag
       - name: Create and push manifest (:latest)
-        uses: Noelware/docker-manifest-action@master
+        uses: Noelware/docker-manifest-action@0.4.3
         with:
           base-image: ${{ secrets.DOCKER_IMAGE }}:${{ env.LATEST_TAG }}
           extra-images: ${{ secrets.DOCKER_IMAGE }}:${{ env.LATEST_TAG }}-amd64,${{ secrets.DOCKER_IMAGE }}:${{ env.LATEST_TAG }}-arm64v8,${{ secrets.DOCKER_IMAGE }}:${{ env.LATEST_TAG }}-armv7,${{ secrets.DOCKER_IMAGE }}:${{ env.LATEST_TAG }}-i386
@@ -455,7 +455,7 @@ jobs:
       # manifest for :1.2.3 tag
       #  this has to run only if invoked by a new tag
       - name: Create and push manifest (:ve.rs.ion)
-        uses: Noelware/docker-manifest-action@master
+        uses: Noelware/docker-manifest-action@0.4.3
         if: github.event_name != 'workflow_dispatch'
         with:
           base-image: ${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.GIT_TAG }}
@@ -464,7 +464,7 @@ jobs:
 
       # manifest for :1 tag (major release)
       - name: Create and push manifest (:major)
-        uses: Noelware/docker-manifest-action@master
+        uses: Noelware/docker-manifest-action@0.4.3
         with:
           base-image: ${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.MAJOR_TAG }}
           extra-images: ${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.MAJOR_TAG }}-amd64,${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.MAJOR_TAG }}-arm64v8,${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.MAJOR_TAG }}-armv7
@@ -472,7 +472,7 @@ jobs:
 
       # manifest for :latest tag
       - name: Create and push manifest (:latest)
-        uses: Noelware/docker-manifest-action@master
+        uses: Noelware/docker-manifest-action@0.4.3
         with:
           base-image: ${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.LATEST_TAG }}
           extra-images: ${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.LATEST_TAG }}-amd64,${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.LATEST_TAG }}-arm64v8,${{ secrets.DOCKER_IMAGE_CLASSIC }}:${{ env.LATEST_TAG }}-armv7
