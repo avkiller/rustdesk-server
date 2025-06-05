@@ -55,6 +55,7 @@ jobs:
                git \
                g++ \
                g++-multilib \
+               musl-tools ＼
                build-essential
       
       - name: Install toolchain
